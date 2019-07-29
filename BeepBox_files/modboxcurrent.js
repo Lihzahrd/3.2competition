@@ -8273,47 +8273,7 @@ var beepbox;
     }());
     beepbox.ExportPrompt = ExportPrompt;
 })(beepbox || (beepbox = {}));
-var beepbox;
-(function (beepbox) {
-    var button = beepbox.html.button, div = beepbox.html.div, input = beepbox.html.input, text = beepbox.html.text;
-    var NONPrompt = (function () {
-        function ImportPrompt(_doc, _songEditor) {
-            var _this = this;
-            this._doc = _doc;
-            this._songEditor = _songEditor;
-            this._fileInput = input({ type: "file", accept: ".json,application/json" });
-            this._cancelButton = button({}, [text("Cancel")]);
-            this.container = div({ className: "prompt", style: "width: 200px;" }, [
-                div({ style: "font-size: 2em" }, [text("DISABLED")]),
-                div({ style: "text-align: left;" }, [text("BeepBox songs can be exported and re-imported as .json files. You could also use other means to make .json files for BeepBox as long as they follow the same structure.")]),
-                this._fileInputFAIL,
-                this._cancelButton,
-            ]);
-            this._close = function () {
-                _this._doc.undo();
-            };
-            this.cleanUp = function () {
-                _this._fileInput.removeEventListener("change", _this._whenFileSelected);
-                _this._cancelButton.removeEventListener("click", _this._close);
-            };
-            this._whenFileSelected = function () {
-                var file = _this._fileInput.files[0];
-                if (!file)
-                    return;
-                var reader = new FileReader();
-                reader.addEventListener("load", function (event) {
-                    _this._doc.prompt = null;
-                    _this._doc.record(new beepbox.ChangeSong(_this._doc, reader.result), true);
-                });
-                reader.readAsText(file);
-            };
-            this._fileInput.addEventListener("change", this._whenFileSelected);
-            this._cancelButton.addEventListener("click", this._close);
-        }
-        return ImportPrompt;
-    }());
-    beepbox.ImportPrompt = ImportPrompt;
-})(beepbox || (beepbox = {}));
+
 var beepbox;
 
 (function (beepbox) {
