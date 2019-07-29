@@ -8276,7 +8276,7 @@ var beepbox;
 var beepbox;
 (function (beepbox) {
     var button = beepbox.html.button, div = beepbox.html.div, input = beepbox.html.input, text = beepbox.html.text;
-    var ImportPrompt = (function () {
+    var NONPrompt = (function () {
         function ImportPrompt(_doc, _songEditor) {
             var _this = this;
             this._doc = _doc;
@@ -8284,9 +8284,9 @@ var beepbox;
             this._fileInput = input({ type: "file", accept: ".json,application/json" });
             this._cancelButton = button({}, [text("Cancel")]);
             this.container = div({ className: "prompt", style: "width: 200px;" }, [
-                div({ style: "font-size: 2em" }, [text("Import")]),
+                div({ style: "font-size: 2em" }, [text("DISABLED")]),
                 div({ style: "text-align: left;" }, [text("BeepBox songs can be exported and re-imported as .json files. You could also use other means to make .json files for BeepBox as long as they follow the same structure.")]),
-                this._fileInput,
+                this._fileInputFAIL,
                 this._cancelButton,
             ]);
             this._close = function () {
