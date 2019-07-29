@@ -1103,7 +1103,7 @@ Config.operatorCarrierChorus = [
             var buffer = [];
             var base64IntToCharCode = Song._base64IntToCharCode;
             buffer.push(base64IntToCharCode[Song._latestVersion]);
-            buffer.push(739, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
+            buffer.push(110, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
             buffer.push(122, base64IntToCharCode[this.theme]);
 			buffer.push(115, base64IntToCharCode[this.scale]);
 			buffer.push(117, base64IntToCharCode[this.mix]);
@@ -1111,7 +1111,7 @@ Config.operatorCarrierChorus = [
             buffer.push(107, base64IntToCharCode[this.key]);
             buffer.push(108, base64IntToCharCode[this.loopStart >> 6], base64IntToCharCode[this.loopStart & 0x3f]);
             buffer.push(101, base64IntToCharCode[(this.loopLength - 1) >> 6], base64IntToCharCode[(this.loopLength - 1) & 0x3f]);
-            buffer.push(457, base64IntToCharCode[this.tempo]);
+            buffer.push(116, base64IntToCharCode[this.tempo]);
             buffer.push(109, base64IntToCharCode[this.reverb]);
             buffer.push(120, base64IntToCharCode[this.blend]);
             buffer.push(121, base64IntToCharCode[this.riff]);
