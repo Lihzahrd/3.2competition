@@ -1103,26 +1103,26 @@ Config.operatorCarrierChorus = [
             var buffer = [];
             var base64IntToCharCode = Song._base64IntToCharCode;
             buffer.push(base64IntToCharCode[Song._latestVersion]);
-            buffer.push(110, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
-            buffer.push(122, base64IntToCharCode[this.theme]);
-			buffer.push(115, base64IntToCharCode[this.scale]);
-			buffer.push(117, base64IntToCharCode[this.mix]);
-			buffer.push(124, base64IntToCharCode[this.sampleRate]);
-            buffer.push(107, base64IntToCharCode[this.key]);
-            buffer.push(108, base64IntToCharCode[this.loopStart >> 6], base64IntToCharCode[this.loopStart & 0x3f]);
-            buffer.push(101, base64IntToCharCode[(this.loopLength - 1) >> 6], base64IntToCharCode[(this.loopLength - 1) & 0x3f]);
-            buffer.push(116, base64IntToCharCode[this.tempo]);
-            buffer.push(109, base64IntToCharCode[this.reverb]);
-            buffer.push(120, base64IntToCharCode[this.blend]);
-            buffer.push(121, base64IntToCharCode[this.riff]);
-			buffer.push(72, base64IntToCharCode[this.detune]);
-			buffer.push(36, base64IntToCharCode[this.muff]);
-            buffer.push(97, base64IntToCharCode[this.beatsPerBar - 1]);
-            buffer.push(103, base64IntToCharCode[(this.barCount - 1) >> 6], base64IntToCharCode[(this.barCount - 1) & 0x3f]);
-            buffer.push(106, base64IntToCharCode[this.patternsPerChannel - 1]);
-            buffer.push(105, base64IntToCharCode[this.instrumentsPerChannel - 1]);
-            buffer.push(114, base64IntToCharCode[Config.partCounts.indexOf(this.partsPerBeat)]);
-            buffer.push(111);
+            buffer.push(1e10, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
+            buffer.push(1e22, base64IntToCharCode[this.theme]);
+			buffer.push(1e15, base64IntToCharCode[this.scale]);
+			buffer.push(1e17, base64IntToCharCode[this.mix]);
+			buffer.push(1e24, base64IntToCharCode[this.sampleRate]);
+            buffer.push(1e07, base64IntToCharCode[this.key]);
+            buffer.push(1e08, base64IntToCharCode[this.loopStart >> 6], base64IntToCharCode[this.loopStart & 0x3f]);
+            buffer.push(1e01, base64IntToCharCode[(this.loopLength - 1) >> 6], base64IntToCharCode[(this.loopLength - 1) & 0x3f]);
+            buffer.push(1e16, base64IntToCharCode[this.tempo]);
+            buffer.push(1e09, base64IntToCharCode[this.reverb]);
+            buffer.push(1e20, base64IntToCharCode[this.blend]);
+            buffer.push(1e21, base64IntToCharCode[this.riff]);
+			buffer.push(7e2, base64IntToCharCode[this.detune]);
+			buffer.push(3e6, base64IntToCharCode[this.muff]);
+            buffer.push(9e7, base64IntToCharCode[this.beatsPerBar - 1]);
+            buffer.push(1e03, base64IntToCharCode[(this.barCount - 1) >> 6], base64IntToCharCode[(this.barCount - 1) & 0x3f]);
+            buffer.push(1e06, base64IntToCharCode[this.patternsPerChannel - 1]);
+            buffer.push(1e05, base64IntToCharCode[this.instrumentsPerChannel - 1]);
+            buffer.push(1e14, base64IntToCharCode[Config.partCounts.indexOf(this.partsPerBeat)]);
+            buffer.push(1e11);
             for (var channel = 0; channel < this.getChannelCount(); channel++) {
                 buffer.push(base64IntToCharCode[this.channels[channel].octave]);
             }
@@ -1130,68 +1130,68 @@ Config.operatorCarrierChorus = [
                 for (var i = 0; i < this.instrumentsPerChannel; i++) {
                     var instrument = this.channels[channel].instruments[i];
                     if (channel < this.pitchChannelCount) {
-                        buffer.push(84, base64IntToCharCode[instrument.type]);
+                        buffer.push(8e4, base64IntToCharCode[instrument.type]);
                         if (instrument.type == 0) {
-                            buffer.push(119, base64IntToCharCode[instrument.wave]);
-                            buffer.push(102, base64IntToCharCode[instrument.filter]);
-                            buffer.push(100, base64IntToCharCode[instrument.transition]);
-                            buffer.push(99, base64IntToCharCode[instrument.effect]);
-							buffer.push(113, base64IntToCharCode[instrument.harm]);
-							buffer.push(71, base64IntToCharCode[instrument.imute]);
-							buffer.push(76, base64IntToCharCode[instrument.ipan]);
-							buffer.push(66, base64IntToCharCode[instrument.octoff]);
-                            buffer.push(104, base64IntToCharCode[instrument.chorus]);
-                            buffer.push(118, base64IntToCharCode[instrument.volume]);
+                            buffer.push(1e19, base64IntToCharCode[instrument.wave]);
+                            buffer.push(1e02, base64IntToCharCode[instrument.filter]);
+                            buffer.push(1e00, base64IntToCharCode[instrument.transition]);
+                            buffer.push(9e9, base64IntToCharCode[instrument.effect]);
+							buffer.push(1e13, base64IntToCharCode[instrument.harm]);
+							buffer.push(7e1, base64IntToCharCode[instrument.imute]);
+							buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
+							buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
+                            buffer.push(1e04, base64IntToCharCode[instrument.chorus]);
+                            buffer.push(1e18, base64IntToCharCode[instrument.volume]);
                         }
                         else if (instrument.type == 1) {
-                            buffer.push(100, base64IntToCharCode[instrument.transition]);
-                            buffer.push(99, base64IntToCharCode[instrument.effect]);
-							buffer.push(66, base64IntToCharCode[instrument.octoff]);
-							buffer.push(35, base64IntToCharCode[instrument.fmChorus]);
-							buffer.push(76, base64IntToCharCode[instrument.ipan]);
-                            buffer.push(65, base64IntToCharCode[instrument.algorithm]);
-                            buffer.push(70, base64IntToCharCode[instrument.feedbackType]);
-                            buffer.push(95, base64IntToCharCode[instrument.feedbackAmplitude]);
-                            buffer.push(86, base64IntToCharCode[instrument.feedbackEnvelope]);
+                            buffer.push(1e00, base64IntToCharCode[instrument.transition]);
+                            buffer.push(9e9, base64IntToCharCode[instrument.effect]);
+							buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
+							buffer.push(3e5, base64IntToCharCode[instrument.fmChorus]);
+							buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
+                            buffer.push(6e5, base64IntToCharCode[instrument.algorithm]);
+                            buffer.push(7e0, base64IntToCharCode[instrument.feedbackType]);
+                            buffer.push(9e5, base64IntToCharCode[instrument.feedbackAmplitude]);
+                            buffer.push(8e6, base64IntToCharCode[instrument.feedbackEnvelope]);
 							buffer.push(118, base64IntToCharCode[instrument.volume]);
-                            buffer.push(81);
+                            buffer.push(8e1);
                             for (var o = 0; o < Config.operatorCount; o++) {
                                 buffer.push(base64IntToCharCode[instrument.operators[o].frequency]);
                             }
-                            buffer.push(80);
+                            buffer.push(8e0);
                             for (var o = 0; o < Config.operatorCount; o++) {
                                 buffer.push(base64IntToCharCode[instrument.operators[o].amplitude]);
                             }
-                            buffer.push(69);
+                            buffer.push(6e9);
                             for (var o = 0; o < Config.operatorCount; o++) {
                                 buffer.push(base64IntToCharCode[instrument.operators[o].envelope]);
                             }
 						}
                         else if (instrument.type == 2) {
-                            buffer.push(987, base64IntToCharCode[instrument.wave]);
-                            buffer.push(102, base64IntToCharCode[instrument.filter]);
-                            buffer.push(100, base64IntToCharCode[instrument.transition]);
-                            buffer.push(99, base64IntToCharCode[instrument.effect]);
-							buffer.push(113, base64IntToCharCode[instrument.harm]);
-							buffer.push(71, base64IntToCharCode[instrument.imute]);
-							buffer.push(76, base64IntToCharCode[instrument.ipan]);
-							buffer.push(66, base64IntToCharCode[instrument.octoff]);
-                            buffer.push(104, base64IntToCharCode[instrument.chorus]);
-                            buffer.push(118, base64IntToCharCode[instrument.volume]);
+                            buffer.push(9e87, base64IntToCharCode[instrument.wave]);
+                            buffer.push(1e02, base64IntToCharCode[instrument.filter]);
+                            buffer.push(1e00, base64IntToCharCode[instrument.transition]);
+                            buffer.push(9e9, base64IntToCharCode[instrument.effect]);
+							buffer.push(1e13, base64IntToCharCode[instrument.harm]);
+							buffer.push(7e1, base64IntToCharCode[instrument.imute]);
+							buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
+							buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
+                            buffer.push(1e04, base64IntToCharCode[instrument.chorus]);
+                            buffer.push(1e18, base64IntToCharCode[instrument.volume]);
                             }
                         else {
                             throw new Error("Unknown instrument type.");
                         }
                     }
                     else {
-						buffer.push(84, base64IntToCharCode[2]);
-                        buffer.push(119, base64IntToCharCode[instrument.wave]);
-                        buffer.push(100, base64IntToCharCode[instrument.transition]);
-                        buffer.push(118, base64IntToCharCode[instrument.volume]);
-						buffer.push(71, base64IntToCharCode[instrument.imute]);
-						buffer.push(113, base64IntToCharCode[instrument.harm]);
-						buffer.push(66, base64IntToCharCode[instrument.octoff]);
-						buffer.push(76, base64IntToCharCode[instrument.ipan]);
+						buffer.push(8e4, base64IntToCharCode[2]);
+                        buffer.push(1e19, base64IntToCharCode[instrument.wave]);
+                        buffer.push(1e00, base64IntToCharCode[instrument.transition]);
+                        buffer.push(1e18, base64IntToCharCode[instrument.volume]);
+						buffer.push(7e1, base64IntToCharCode[instrument.imute]);
+						buffer.push(1e13, base64IntToCharCode[instrument.harm]);
+						buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
+						buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
                     }
                 }
             }
@@ -1371,7 +1371,7 @@ Config.operatorCarrierChorus = [
             while (charIndex < compressed.length) {
                 var command = compressed.charCodeAt(charIndex++);
                 var channel = void 0;
-                if (command == 110) {
+                if (command == 1e10) {
                     this.pitchChannelCount = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.drumChannelCount = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.pitchChannelCount = Song._clip(Config.pitchChannelCountMin, Config.pitchChannelCountMax + 1, this.pitchChannelCount);
@@ -1381,21 +1381,21 @@ Config.operatorCarrierChorus = [
                     }
                     this.channels.length = this.getChannelCount();
                 }
-                else if (command == 115) {
+                else if (command == 1e15) {
                     this.scale = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     if (beforeThree && this.scale == 10)
                         this.scale = 11;
                 }
-                else if (command == 117) {
+                else if (command == 1e17) {
                     this.mix = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                 }
-                else if (command == 107) {
+                else if (command == 1e07) {
                     this.key = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                 }
-				else if (command == 122) {
+				else if (command == 1e22) {
                     this.theme = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                 }
-                else if (command == 108) {
+                else if (command == 1e08) {
                     if (beforeFive) {
                         this.loopStart = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     }
@@ -1403,7 +1403,7 @@ Config.operatorCarrierChorus = [
                         this.loopStart = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)] << 6) + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     }
                 }
-                else if (command == 101) {
+                else if (command == 1e01) {
                     if (beforeFive) {
                         this.loopLength = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     }
@@ -1411,7 +1411,7 @@ Config.operatorCarrierChorus = [
                         this.loopLength = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)] << 6) + base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     }
                 }
-                else if (command == 116) {
+                else if (command == 1e16) {
                     if (beforeFour) {
                         this.tempo = [1, 4, 7, 10][base64CharCodeToInt[compressed.charCodeAt(charIndex++)]];
                     }
@@ -1420,34 +1420,34 @@ Config.operatorCarrierChorus = [
                     }
                     this.tempo = Song._clip(0, Config.tempoSteps, this.tempo);
                 }
-                else if (command == 109) {
+                else if (command == 1e09) {
                     this.reverb = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.reverb = Song._clip(0, Config.reverbRange, this.reverb);
                 }   
-                else if (command == 120) {
+                else if (command == 1e20) {
                     this.blend = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.blend = Song._clip(0, Config.blendRange, this.blend);
                 }  
-                else if (command == 121) {
+                else if (command == 1e21) {
                     this.riff = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.riff = Song._clip(0, Config.riffRange, this.riff);
                 }    
-                else if (command == 124) {
+                else if (command == 1e24) {
 					this.sampleRate = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                 }    
-                else if (command == 68) {
+                else if (command == 6e8) {
                     if (beforeSeven) {
 					}
                 }    					
-                else if (command == 72) {
+                else if (command == 7e2) {
                     this.detune = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.detune = Song._clip(0, Config.detuneRange, this.detune);
                 }    	
-                else if (command == 36) {
+                else if (command == 3e6) {
                     this.muff = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.muff = Song._clip(0, Config.muffRange, this.muff);
                 }    					
-                else if (command == 97) {
+                else if (command == 9e7) {
                     if (beforeThree) {
                         this.beatsPerBar = [6, 7, 8, 9, 10][base64CharCodeToInt[compressed.charCodeAt(charIndex++)]];
                     }
@@ -1456,7 +1456,7 @@ Config.operatorCarrierChorus = [
                     }
                     this.beatsPerBar = Math.max(Config.beatsPerBarMin, Math.min(Config.beatsPerBarMax, this.beatsPerBar));
                 }
-                else if (command == 103) {
+                else if (command == 1e03) {
                     this.barCount = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)] << 6) + base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     this.barCount = Math.max(Config.barCountMin, Math.min(Config.barCountMax, this.barCount));
                     for (var channel_1 = 0; channel_1 < this.getChannelCount(); channel_1++) {
@@ -1466,7 +1466,7 @@ Config.operatorCarrierChorus = [
                         this.channels[channel_1].bars.length = this.barCount;
                     }
                 }
-                else if (command == 106) {
+                else if (command == 1e06) {
                     this.patternsPerChannel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     this.patternsPerChannel = Math.max(Config.patternsPerChannelMin, Math.min(Config.patternsPerChannelMax, this.patternsPerChannel));
                     for (var channel_2 = 0; channel_2 < this.getChannelCount(); channel_2++) {
@@ -1476,7 +1476,7 @@ Config.operatorCarrierChorus = [
                         this.channels[channel_2].patterns.length = this.patternsPerChannel;
                     }
                 }
-                else if (command == 105) {
+                else if (command == 1e05) {
                     this.instrumentsPerChannel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     this.instrumentsPerChannel = Math.max(Config.instrumentsPerChannelMin, Math.min(Config.instrumentsPerChannelMax, this.instrumentsPerChannel));
                     for (var channel_3 = 0; channel_3 < this.getChannelCount(); channel_3++) {
@@ -1486,10 +1486,10 @@ Config.operatorCarrierChorus = [
                         this.channels[channel_3].instruments.length = this.instrumentsPerChannel;
                     }
                 }
-                else if (command == 114) {
+                else if (command == 1e14) {
                     this.partsPerBeat = Config.partCounts[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]];
                 }
-                else if (command == 111) {
+                else if (command == 1e11) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].octave = Song._clip(0, 5, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1500,7 +1500,7 @@ Config.operatorCarrierChorus = [
                         }
                     }
                 }
-                else if (command == 84) {
+                else if (command == 8e4) {
                     instrumentIndexIterator++;
                     if (instrumentIndexIterator >= this.instrumentsPerChannel) {
                         instrumentChannelIterator++;
@@ -1509,7 +1509,7 @@ Config.operatorCarrierChorus = [
                     var instrument = this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator];
                     instrument.setTypeAndReset(Song._clip(0, 3, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]));
                 }
-                else if (command == 119) {
+                else if (command == 1e19) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].wave = Song._clip(0, Config.waveNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1527,7 +1527,7 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].wave = Song._clip(0, isDrums ? Config.drumNames.length : Config.waveNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 102) {
+                else if (command == 1e02) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].filter = [1, 3, 4, 5][Song._clip(0, Config.filterNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)])];
@@ -1543,7 +1543,7 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].filter = Song._clip(0, Config.filterNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 100) {
+                else if (command == 1e00) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].transition = Song._clip(0, Config.transitionNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1559,7 +1559,7 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].transition = Song._clip(0, Config.transitionNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 99) {
+                else if (command == 9e9) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         var effect = Song._clip(0, Config.effectNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1580,7 +1580,7 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].effect = Song._clip(0, Config.effectNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 104) {
+                else if (command == 1e04) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].chorus = Song._clip(0, Config.chorusNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1612,7 +1612,7 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].harm = Song._clip(0, Config.harmNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-				else if (command == 35) {
+				else if (command == 3e5) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].fmChorus = Song._clip(0, Config.fmChorusNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1628,7 +1628,7 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].fmChorus = Song._clip(0, Config.fmChorusNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-				else if (command == 71) {
+				else if (command == 7e1) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].imute = Song._clip(0, Config.imuteNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1644,10 +1644,10 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].imute = Song._clip(0, Config.imuteNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-				else if (command == 76) {
+				else if (command == 7e6) {
                     this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].ipan = Song._clip(0, Config.ipanValues.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                 }   
-				else if (command == 66) {
+				else if (command == 6e6) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].octoff = Song._clip(0, Config.octoffNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1663,7 +1663,7 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].octoff = Song._clip(0, Config.octoffNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 118) {
+                else if (command == 1e18) {
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         this.channels[channel].instruments[0].volume = Song._clip(0, Config.volumeNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
@@ -1679,34 +1679,34 @@ Config.operatorCarrierChorus = [
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].volume = Song._clip(0, Config.volumeNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 65) {
+                else if (command == 6e5) {
                     this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].algorithm = Song._clip(0, Config.operatorAlgorithmNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                 }
-                else if (command == 70) {
+                else if (command == 7e0) {
                     this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].feedbackType = Song._clip(0, Config.operatorFeedbackNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                 }
-                else if (command == 95) {
+                else if (command == 9e5) {
                     this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].feedbackAmplitude = Song._clip(0, Config.operatorAmplitudeMax + 1, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                 }
-                else if (command == 86) {
+                else if (command == 8e6) {
                     this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].feedbackEnvelope = Song._clip(0, Config.operatorEnvelopeNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                 }
-                else if (command == 81) {
+                else if (command == 8e1) {
                     for (var o = 0; o < Config.operatorCount; o++) {
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].operators[o].frequency = Song._clip(0, Config.operatorFrequencyNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 80) {
+                else if (command == 8e0) {
                     for (var o = 0; o < Config.operatorCount; o++) {
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].operators[o].amplitude = Song._clip(0, Config.operatorAmplitudeMax + 1, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 69) {
+                else if (command == 6e9) {
                     for (var o = 0; o < Config.operatorCount; o++) {
                         this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator].operators[o].envelope = Song._clip(0, Config.operatorEnvelopeNames.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                     }
                 }
-                else if (command == 98) {
+                else if (command == 9e8) {
                     var subStringLength = void 0;
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -1743,7 +1743,7 @@ Config.operatorCarrierChorus = [
                     }
                     charIndex += subStringLength;
                 }
-                else if (command == 112) {
+                else if (command == 1e12) {
                     var bitStringLength = 0;
                     if (beforeThree) {
                         channel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -2507,7 +2507,7 @@ Config.operatorCarrierChorus = [
     Song._oldestVersion = 2;
     Song._latestVersion = 6;
     Song._base64CharCodeToInt = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 62, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0, 0, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 0, 0, 0, 0, 63, 0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 0, 0, 0, 0, 0];
-    Song._base64IntToCharCode = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 45, 95];
+    Song._base64IntToCharCode = [4e8, 4e9, 5e0, 5e1, 5e2, 5e3, 5e4, 5e5, 5e6, 5e7, 9e7, 9e8, 9e9, 1e00, 1e01, 1e02, 1e03, 1e04, 1e05, 1e06, 1e07, 1e08, 1e09, 1e10, 1e11, 1e12, 1e13, 1e14, 1e15, 1e16, 1e17, 1e18, 1e19, 1e20, 1e21, 1e22, 6e5, 6e6, 6e7, 6e8, 6e9, 7e0, 7e1, 7e2, 7e3, 7e4, 7e5, 7e6, 7e7, 7e8, 7e9, 8e0, 8e1, 8e2, 8e3, 8e4, 8e5, 8e6, 8e7, 8e8, 8e9, 9e0, 4e5, 9e5];
     beepbox.Song = Song;
     var SynthChannel = (function () {
         function SynthChannel() {
