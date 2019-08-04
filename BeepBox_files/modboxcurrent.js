@@ -1132,7 +1132,7 @@ Config.operatorCarrierChorus = [
                     if (channel < this.pitchChannelCount) {
                         buffer.push(84, base64IntToCharCode[instrument.type]);
                         if (instrument.type == 0) {
-                            buffer.push(987, base64IntToCharCode[instrument.wave]);
+                            buffer.push(103, base64IntToCharCode[instrument.wave]);
                             buffer.push(102, base64IntToCharCode[instrument.filter]);
                             buffer.push(100, base64IntToCharCode[instrument.transition]);
                             buffer.push(99, base64IntToCharCode[instrument.effect]);
