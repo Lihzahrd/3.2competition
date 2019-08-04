@@ -1111,16 +1111,16 @@ Config.operatorCarrierChorus = [
             buffer.push(107, base64IntToCharCode[this.key]);
             buffer.push(108, base64IntToCharCode[this.loopStart >> 6], base64IntToCharCode[this.loopStart & 0x3f]);
             buffer.push(101, base64IntToCharCode[(this.loopLength - 1) >> 6], base64IntToCharCode[(this.loopLength - 1) & 0x3f]);
-            buffer.push(987, base64IntToCharCode[this.tempo]);
-            buffer.push(897, base64IntToCharCode[this.reverb]);
+            buffer.push(116, base64IntToCharCode[this.tempo]);
+            buffer.push(109, base64IntToCharCode[this.reverb]);
             buffer.push(120, base64IntToCharCode[this.blend]);
             buffer.push(121, base64IntToCharCode[this.riff]);
 			buffer.push(72, base64IntToCharCode[this.detune]);
 			buffer.push(36, base64IntToCharCode[this.muff]);
             buffer.push(97, base64IntToCharCode[this.beatsPerBar - 1]);
-            buffer.push(456, base64IntToCharCode[(this.barCount - 1) >> 6], base64IntToCharCode[(this.barCount - 1) & 0x3f]);
-            buffer.push(789, base64IntToCharCode[this.patternsPerChannel - 1]);
-            buffer.push(567, base64IntToCharCode[this.instrumentsPerChannel - 1]);
+            buffer.push(103, base64IntToCharCode[(this.barCount - 1) >> 6], base64IntToCharCode[(this.barCount - 1) & 0x3f]);
+            buffer.push(106, base64IntToCharCode[this.patternsPerChannel - 1]);
+            buffer.push(105, base64IntToCharCode[this.instrumentsPerChannel - 1]);
             buffer.push(114, base64IntToCharCode[Config.partCounts.indexOf(this.partsPerBeat)]);
             buffer.push(111);
             for (var channel = 0; channel < this.getChannelCount(); channel++) {
@@ -1411,7 +1411,7 @@ Config.operatorCarrierChorus = [
                         this.loopLength = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)] << 6) + base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     }
                 }
-                else if (command == 987) {
+                else if (command == 116) {
                     if (beforeFour) {
                         this.tempo = [1, 4, 7, 10][base64CharCodeToInt[compressed.charCodeAt(charIndex++)]];
                     }
@@ -1420,7 +1420,7 @@ Config.operatorCarrierChorus = [
                     }
                     this.tempo = Song._clip(0, Config.tempoSteps, this.tempo);
                 }
-                else if (command == 897) {
+                else if (command == 109) {
                     this.reverb = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.reverb = Song._clip(0, Config.reverbRange, this.reverb);
                 }   
@@ -1456,7 +1456,7 @@ Config.operatorCarrierChorus = [
                     }
                     this.beatsPerBar = Math.max(Config.beatsPerBarMin, Math.min(Config.beatsPerBarMax, this.beatsPerBar));
                 }
-                else if (command == 456) {
+                else if (command == 103) {
                     this.barCount = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)] << 6) + base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     this.barCount = Math.max(Config.barCountMin, Math.min(Config.barCountMax, this.barCount));
                     for (var channel_1 = 0; channel_1 < this.getChannelCount(); channel_1++) {
@@ -1466,7 +1466,7 @@ Config.operatorCarrierChorus = [
                         this.channels[channel_1].bars.length = this.barCount;
                     }
                 }
-                else if (command == 789) {
+                else if (command == 106) {
                     this.patternsPerChannel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     this.patternsPerChannel = Math.max(Config.patternsPerChannelMin, Math.min(Config.patternsPerChannelMax, this.patternsPerChannel));
                     for (var channel_2 = 0; channel_2 < this.getChannelCount(); channel_2++) {
@@ -1476,7 +1476,7 @@ Config.operatorCarrierChorus = [
                         this.channels[channel_2].patterns.length = this.patternsPerChannel;
                     }
                 }
-                else if (command == 567) {
+                else if (command == 105) {
                     this.instrumentsPerChannel = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] + 1;
                     this.instrumentsPerChannel = Math.max(Config.instrumentsPerChannelMin, Math.min(Config.instrumentsPerChannelMax, this.instrumentsPerChannel));
                     for (var channel_3 = 0; channel_3 < this.getChannelCount(); channel_3++) {
@@ -2507,7 +2507,7 @@ Config.operatorCarrierChorus = [
     Song._oldestVersion = 2;
     Song._latestVersion = 6;
     Song._base64CharCodeToInt = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 62, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0, 0, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 0, 0, 0, 0, 63, 0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 0, 0, 0, 0, 0];
-    Song._base64IntToCharCode = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102, 456, 104, 567, 789, 107, 108, 897, 110, 111, 112, 113, 114, 115, 987, 117, 118, 119, 120, 121, 122, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 45, 95];
+    Song._base64IntToCharCode = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 45, 95];
     beepbox.Song = Song;
     var SynthChannel = (function () {
         function SynthChannel() {
