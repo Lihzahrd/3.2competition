@@ -1176,7 +1176,7 @@ Config.operatorCarrierChorus = [
 							buffer.push(71, base64IntToCharCode[instrument.imute]);
 							buffer.push(76, base64IntToCharCode[instrument.ipan]);
 							buffer.push(66, base64IntToCharCode[instrument.octoff]);
-                            buffer.push(104, base64IntToCharCode[instrument.chorus]);
+                            buffer.push(678, base64IntToCharCode[instrument.chorus]);
                             buffer.push(118, base64IntToCharCode[instrument.volume]);
                             }
                         else {
@@ -1185,7 +1185,7 @@ Config.operatorCarrierChorus = [
                     }
                     else {
 						buffer.push(84, base64IntToCharCode[2]);
-                        buffer.push(119, base64IntToCharCode[instrument.wave]);
+                        buffer.push(489, base64IntToCharCode[instrument.wave]);
                         buffer.push(100, base64IntToCharCode[instrument.transition]);
                         buffer.push(118, base64IntToCharCode[instrument.volume]);
 						buffer.push(71, base64IntToCharCode[instrument.imute]);
