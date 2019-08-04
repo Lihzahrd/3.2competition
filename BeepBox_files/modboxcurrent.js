@@ -1103,26 +1103,26 @@ Config.operatorCarrierChorus = [
             var buffer = [];
             var base64IntToCharCode = Song._base64IntToCharCode;
             buffer.push(base64IntToCharCode[Song._latestVersion]);
-            buffer.push(1e10, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
+            buffer.push(110, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
             buffer.push(1e22, base64IntToCharCode[this.theme]);
-			buffer.push(1e15, base64IntToCharCode[this.scale]);
-			buffer.push(1e17, base64IntToCharCode[this.mix]);
-			buffer.push(1e24, base64IntToCharCode[this.sampleRate]);
-            buffer.push(1e07, base64IntToCharCode[this.key]);
-            buffer.push(1e08, base64IntToCharCode[this.loopStart >> 6], base64IntToCharCode[this.loopStart & 0x3f]);
-            buffer.push(1e01, base64IntToCharCode[(this.loopLength - 1) >> 6], base64IntToCharCode[(this.loopLength - 1) & 0x3f]);
-            buffer.push(1e16, base64IntToCharCode[this.tempo]);
-            buffer.push(1e09, base64IntToCharCode[this.reverb]);
-            buffer.push(1e20, base64IntToCharCode[this.blend]);
-            buffer.push(1e21, base64IntToCharCode[this.riff]);
-			buffer.push(7e2, base64IntToCharCode[this.detune]);
-			buffer.push(3e6, base64IntToCharCode[this.muff]);
-            buffer.push(9e7, base64IntToCharCode[this.beatsPerBar - 1]);
-            buffer.push(1e03, base64IntToCharCode[(this.barCount - 1) >> 6], base64IntToCharCode[(this.barCount - 1) & 0x3f]);
-            buffer.push(1e06, base64IntToCharCode[this.patternsPerChannel - 1]);
-            buffer.push(1e05, base64IntToCharCode[this.instrumentsPerChannel - 1]);
-            buffer.push(1e14, base64IntToCharCode[Config.partCounts.indexOf(this.partsPerBeat)]);
-            buffer.push(1e11);
+			buffer.push(115, base64IntToCharCode[this.scale]);
+			buffer.push(117, base64IntToCharCode[this.mix]);
+			buffer.push(124, base64IntToCharCode[this.sampleRate]);
+            buffer.push(107, base64IntToCharCode[this.key]);
+            buffer.push(108, base64IntToCharCode[this.loopStart >> 6], base64IntToCharCode[this.loopStart & 0x3f]);
+            buffer.push(101, base64IntToCharCode[(this.loopLength - 1) >> 6], base64IntToCharCode[(this.loopLength - 1) & 0x3f]);
+            buffer.push(116, base64IntToCharCode[this.tempo]);
+            buffer.push(109, base64IntToCharCode[this.reverb]);
+            buffer.push(120, base64IntToCharCode[this.blend]);
+            buffer.push(121, base64IntToCharCode[this.riff]);
+			buffer.push(72, base64IntToCharCode[this.detune]);
+			buffer.push(36, base64IntToCharCode[this.muff]);
+            buffer.push(97, base64IntToCharCode[this.beatsPerBar - 1]);
+            buffer.push(103, base64IntToCharCode[(this.barCount - 1) >> 6], base64IntToCharCode[(this.barCount - 1) & 0x3f]);
+            buffer.push(106, base64IntToCharCode[this.patternsPerChannel - 1]);
+            buffer.push(105, base64IntToCharCode[this.instrumentsPerChannel - 1]);
+            buffer.push(114, base64IntToCharCode[Config.partCounts.indexOf(this.partsPerBeat)]);
+            buffer.push(111);
             for (var channel = 0; channel < this.getChannelCount(); channel++) {
                 buffer.push(base64IntToCharCode[this.channels[channel].octave]);
             }
@@ -1130,68 +1130,68 @@ Config.operatorCarrierChorus = [
                 for (var i = 0; i < this.instrumentsPerChannel; i++) {
                     var instrument = this.channels[channel].instruments[i];
                     if (channel < this.pitchChannelCount) {
-                        buffer.push(8e4, base64IntToCharCode[instrument.type]);
+                        buffer.push(84, base64IntToCharCode[instrument.type]);
                         if (instrument.type == 0) {
-                            buffer.push(1e19, base64IntToCharCode[instrument.wave]);
-                            buffer.push(1e02, base64IntToCharCode[instrument.filter]);
-                            buffer.push(1e00, base64IntToCharCode[instrument.transition]);
-                            buffer.push(9e9, base64IntToCharCode[instrument.effect]);
-							buffer.push(1e13, base64IntToCharCode[instrument.harm]);
-							buffer.push(7e1, base64IntToCharCode[instrument.imute]);
-							buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
-							buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
-                            buffer.push(1e04, base64IntToCharCode[instrument.chorus]);
-                            buffer.push(1e18, base64IntToCharCode[instrument.volume]);
+                            buffer.push(119, base64IntToCharCode[instrument.wave]);
+                            buffer.push(102, base64IntToCharCode[instrument.filter]);
+                            buffer.push(100, base64IntToCharCode[instrument.transition]);
+                            buffer.push(99, base64IntToCharCode[instrument.effect]);
+							buffer.push(113, base64IntToCharCode[instrument.harm]);
+							buffer.push(71, base64IntToCharCode[instrument.imute]);
+							buffer.push(76, base64IntToCharCode[instrument.ipan]);
+							buffer.push(66, base64IntToCharCode[instrument.octoff]);
+                            buffer.push(104, base64IntToCharCode[instrument.chorus]);
+                            buffer.push(118, base64IntToCharCode[instrument.volume]);
                         }
                         else if (instrument.type == 1) {
-                            buffer.push(1e00, base64IntToCharCode[instrument.transition]);
-                            buffer.push(9e9, base64IntToCharCode[instrument.effect]);
-							buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
-							buffer.push(3e5, base64IntToCharCode[instrument.fmChorus]);
-							buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
-                            buffer.push(6e5, base64IntToCharCode[instrument.algorithm]);
-                            buffer.push(7e0, base64IntToCharCode[instrument.feedbackType]);
-                            buffer.push(9e5, base64IntToCharCode[instrument.feedbackAmplitude]);
-                            buffer.push(8e6, base64IntToCharCode[instrument.feedbackEnvelope]);
+                            buffer.push(100, base64IntToCharCode[instrument.transition]);
+                            buffer.push(99, base64IntToCharCode[instrument.effect]);
+							buffer.push(66, base64IntToCharCode[instrument.octoff]);
+							buffer.push(35, base64IntToCharCode[instrument.fmChorus]);
+							buffer.push(76, base64IntToCharCode[instrument.ipan]);
+                            buffer.push(65, base64IntToCharCode[instrument.algorithm]);
+                            buffer.push(70, base64IntToCharCode[instrument.feedbackType]);
+                            buffer.push(95, base64IntToCharCode[instrument.feedbackAmplitude]);
+                            buffer.push(86, base64IntToCharCode[instrument.feedbackEnvelope]);
 							buffer.push(118, base64IntToCharCode[instrument.volume]);
-                            buffer.push(8e1);
+                            buffer.push(81);
                             for (var o = 0; o < Config.operatorCount; o++) {
                                 buffer.push(base64IntToCharCode[instrument.operators[o].frequency]);
                             }
-                            buffer.push(8e0);
+                            buffer.push(80);
                             for (var o = 0; o < Config.operatorCount; o++) {
                                 buffer.push(base64IntToCharCode[instrument.operators[o].amplitude]);
                             }
-                            buffer.push(6e9);
+                            buffer.push(69);
                             for (var o = 0; o < Config.operatorCount; o++) {
                                 buffer.push(base64IntToCharCode[instrument.operators[o].envelope]);
                             }
 						}
                         else if (instrument.type == 2) {
-                            buffer.push(9e87, base64IntToCharCode[instrument.wave]);
-                            buffer.push(1e02, base64IntToCharCode[instrument.filter]);
-                            buffer.push(1e00, base64IntToCharCode[instrument.transition]);
-                            buffer.push(9e9, base64IntToCharCode[instrument.effect]);
-							buffer.push(1e13, base64IntToCharCode[instrument.harm]);
-							buffer.push(7e1, base64IntToCharCode[instrument.imute]);
-							buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
-							buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
-                            buffer.push(1e04, base64IntToCharCode[instrument.chorus]);
-                            buffer.push(1e18, base64IntToCharCode[instrument.volume]);
+                            buffer.push(987, base64IntToCharCode[instrument.wave]);
+                            buffer.push(102, base64IntToCharCode[instrument.filter]);
+                            buffer.push(100, base64IntToCharCode[instrument.transition]);
+                            buffer.push(99, base64IntToCharCode[instrument.effect]);
+							buffer.push(113, base64IntToCharCode[instrument.harm]);
+							buffer.push(71, base64IntToCharCode[instrument.imute]);
+							buffer.push(76, base64IntToCharCode[instrument.ipan]);
+							buffer.push(66, base64IntToCharCode[instrument.octoff]);
+                            buffer.push(104, base64IntToCharCode[instrument.chorus]);
+                            buffer.push(118, base64IntToCharCode[instrument.volume]);
                             }
                         else {
                             throw new Error("Unknown instrument type.");
                         }
                     }
                     else {
-						buffer.push(8e4, base64IntToCharCode[2]);
-                        buffer.push(1e19, base64IntToCharCode[instrument.wave]);
-                        buffer.push(1e00, base64IntToCharCode[instrument.transition]);
-                        buffer.push(1e18, base64IntToCharCode[instrument.volume]);
-						buffer.push(7e1, base64IntToCharCode[instrument.imute]);
-						buffer.push(1e13, base64IntToCharCode[instrument.harm]);
-						buffer.push(6e6, base64IntToCharCode[instrument.octoff]);
-						buffer.push(7e6, base64IntToCharCode[instrument.ipan]);
+						buffer.push(84, base64IntToCharCode[2]);
+                        buffer.push(119, base64IntToCharCode[instrument.wave]);
+                        buffer.push(100, base64IntToCharCode[instrument.transition]);
+                        buffer.push(118, base64IntToCharCode[instrument.volume]);
+						buffer.push(71, base64IntToCharCode[instrument.imute]);
+						buffer.push(113, base64IntToCharCode[instrument.harm]);
+						buffer.push(66, base64IntToCharCode[instrument.octoff]);
+						buffer.push(76, base64IntToCharCode[instrument.ipan]);
                     }
                 }
             }
