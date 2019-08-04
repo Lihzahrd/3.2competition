@@ -2480,22 +2480,22 @@ Config.operatorCarrierChorus = [
                     var instrumentIndex = this.getPatternInstrument(channel, bar);
                     var instrument = this.channels[channel].instruments[instrumentIndex];
                     if (instrument.type == 0) {
-                        this._fingerprint[charCount++] = "c";
+                        this._fingerprint[charCount++] = "h";
                     }
                     else if (instrument.type == 1) {
-                        this._fingerprint[charCount++] = "f";
+                        this._fingerprint[charCount++] = "r";
                         this._fingerprint[charCount++] = instrument.algorithm;
                         this._fingerprint[charCount++] = instrument.feedbackType;
                     }
                     else if (instrument.type == 2) {
-                        this._fingerprint[charCount++] = "c";
+                        this._fingerprint[charCount++] = "n";
                     }
                     else {
                         throw new Error("Unknown instrument type.");
                     }
                 }
                 else {
-                    this._fingerprint[charCount++] = "d";
+                    this._fingerprint[charCount++] = "m";
                 }
             }
             this._fingerprint.length = charCount;
