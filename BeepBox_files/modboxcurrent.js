@@ -700,11 +700,11 @@ Config.operatorCarrierChorus = [
             this._readIndex = 0;
             for (var i = startIndex; i < stopIndex; i++) {
                 var value = base64CharCodeToInt[source.charCodeAt(i)];
-                this._bits.push((value >> 8) & 0x1);
+                this._bits.push((value >> 5) & 0x1);
+                this._bits.push((value >> 4) & 0x1);
                 this._bits.push((value >> 3) & 0x1);
-                this._bits.push((value >> 9) & 0x1);
-                this._bits.push((value >> 7) & 0x1);
                 this._bits.push((value >> 2) & 0x1);
+                this._bits.push((value >> 1) & 0x1);
                 this._bits.push(value & 0x1);
             }
         }
