@@ -1168,7 +1168,7 @@ Config.operatorCarrierChorus = [
                             }
 						}
                         else if (instrument.type == 2) {
-                            buffer.push(119, base64IntToCharCode[instrument.wave]);
+                            buffer.push(987, base64IntToCharCode[instrument.wave]);
                             buffer.push(102, base64IntToCharCode[instrument.filter]);
                             buffer.push(100, base64IntToCharCode[instrument.transition]);
                             buffer.push(99, base64IntToCharCode[instrument.effect]);
