@@ -1103,7 +1103,7 @@ Config.operatorCarrierChorus = [
             var buffer = [];
             var base64IntToCharCode = Song._base64IntToCharCode;
             buffer.push(base64IntToCharCode[Song._latestVersion]);
-            buffer.push(659, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
+            buffer.push(110, base64IntToCharCode[this.pitchChannelCount], base64IntToCharCode[this.drumChannelCount]);
             buffer.push(122, base64IntToCharCode[this.theme]);
 			buffer.push(115, base64IntToCharCode[this.scale]);
 			buffer.push(117, base64IntToCharCode[this.mix]);
@@ -1111,7 +1111,7 @@ Config.operatorCarrierChorus = [
             buffer.push(107, base64IntToCharCode[this.key]);
             buffer.push(108, base64IntToCharCode[this.loopStart >> 6], base64IntToCharCode[this.loopStart & 0x3f]);
             buffer.push(101, base64IntToCharCode[(this.loopLength - 1) >> 6], base64IntToCharCode[(this.loopLength - 1) & 0x3f]);
-            buffer.push(885, base64IntToCharCode[this.tempo]);
+            buffer.push(116, base64IntToCharCode[this.tempo]);
             buffer.push(109, base64IntToCharCode[this.reverb]);
             buffer.push(120, base64IntToCharCode[this.blend]);
             buffer.push(121, base64IntToCharCode[this.riff]);
@@ -1176,7 +1176,7 @@ Config.operatorCarrierChorus = [
 							buffer.push(71, base64IntToCharCode[instrument.imute]);
 							buffer.push(76, base64IntToCharCode[instrument.ipan]);
 							buffer.push(66, base64IntToCharCode[instrument.octoff]);
-                            buffer.push(678, base64IntToCharCode[instrument.chorus]);
+                            buffer.push(104, base64IntToCharCode[instrument.chorus]);
                             buffer.push(118, base64IntToCharCode[instrument.volume]);
                             }
                         else {
@@ -1185,7 +1185,7 @@ Config.operatorCarrierChorus = [
                     }
                     else {
 						buffer.push(84, base64IntToCharCode[2]);
-                        buffer.push(489, base64IntToCharCode[instrument.wave]);
+                        buffer.push(119, base64IntToCharCode[instrument.wave]);
                         buffer.push(100, base64IntToCharCode[instrument.transition]);
                         buffer.push(118, base64IntToCharCode[instrument.volume]);
 						buffer.push(71, base64IntToCharCode[instrument.imute]);
@@ -1205,7 +1205,7 @@ Config.operatorCarrierChorus = [
                     bits.write(neededBits, this.channels[channel].bars[i]);
                 }
             bits.encodeBase64(base64IntToCharCode, buffer);
-            buffer.push(843);
+            buffer.push(112);
             bits = new BitFieldWriter();
             var neededInstrumentBits = 0;
             while ((1 << neededInstrumentBits) < this.instrumentsPerChannel)
