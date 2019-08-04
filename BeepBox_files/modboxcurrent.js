@@ -1205,7 +1205,7 @@ Config.operatorCarrierChorus = [
                     bits.write(neededBits, this.channels[channel].bars[i]);
                 }
             bits.encodeBase64(base64IntToCharCode, buffer);
-            buffer.push(112);
+            buffer.push(843);
             bits = new BitFieldWriter();
             var neededInstrumentBits = 0;
             while ((1 << neededInstrumentBits) < this.instrumentsPerChannel)
